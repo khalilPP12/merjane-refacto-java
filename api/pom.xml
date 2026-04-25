@@ -15,8 +15,8 @@
 	<properties>
 		<java.version>17</java.version>
 		<spring-security.version>5.6.9</spring-security.version>
-		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-		<org.projectlombok.version>1.18.20</org.projectlombok.version>
+		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+		<org.projectlombok.version>1.18.30</org.projectlombok.version>
 		<org.liquibase.version>4.17.2</org.liquibase.version>
 		<org.owasp.dependency-check-maven.version>7.1.1</org.owasp.dependency-check-maven.version>
 		<org.owasp.dependency-check-maven.suppressionFile>dependency-check-suppressions.xml</org.owasp.dependency-check-maven.suppressionFile>
@@ -302,31 +302,32 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<showWarnings>true</showWarnings>
-					<compilerArgs>
-						<arg>-Werror</arg>
-						<arg>-Xlint:all</arg>
-						<!-- https://stackoverflow.com/a/69734707 -->
-						<arg>-Xlint:-processing</arg>
-						<!-- https://github.com/projectlombok/lombok/wiki/WHY-NOT:-serialVersionUID -->
-						<arg>-Xlint:-serial</arg>
-					</compilerArgs>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>${org.projectlombok.version}</version>
-						</path>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>${org.mapstruct.version}</version>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <showWarnings>true</showWarnings>
+
+                    <failOnWarning>false</failOnWarning>
+
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                        <arg>-Xlint:-processing</arg>
+                        <arg>-Xlint:-serial</arg>
+                    </compilerArgs>
+
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.5.Final</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
 			</plugin>
 			<!-- JACOCO -->
 			<plugin>

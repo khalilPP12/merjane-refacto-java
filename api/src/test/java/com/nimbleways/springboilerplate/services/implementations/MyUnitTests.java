@@ -3,7 +3,6 @@ package com.nimbleways.springboilerplate.services.implementations;
 import com.nimbleways.springboilerplate.entities.Product;
 import com.nimbleways.springboilerplate.repositories.ProductRepository;
 import com.nimbleways.springboilerplate.utils.Annotations.UnitTest;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,8 +20,8 @@ public class MyUnitTests {
     private NotificationService notificationService;
     @Mock
     private ProductRepository productRepository;
-    @InjectMocks 
-    private ProductService productService;
+    @InjectMocks
+    private com.nimbleways.springboilerplate.services.implementations.ProductService productService;
 
     @Test
     public void test() {
