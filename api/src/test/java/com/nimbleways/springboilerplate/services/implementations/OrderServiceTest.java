@@ -39,6 +39,7 @@ class OrderServiceTest {
     @Test
     void processOrder_shouldThrowException_whenOrderDoesNotExist() {
         when(orderRepository.findById(1L)).thenReturn(Optional.empty());
+
         var exception = assertThrows(EntityNotFoundException.class, () -> orderService.processOrder(1L));
         assertEquals("Order not found", exception.getMessage());
 
